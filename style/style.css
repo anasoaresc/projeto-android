@@ -1,0 +1,229 @@
+@charset "UTF 8";
+
+/*
+O @import é utilizado para importar uma fonte, como do google fonts, por exemplo.
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald:wght@200..700&family=Special+Gothic+Condensed+One&display=swap');
+
+/*
+O @font-face é utilizado para aplicar uma fonte baixada em seus arquivos.
+*/
+
+@font-face {
+    font-family: 'idroid';
+    src: url('fonts/IDroid.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+} 
+
+
+/*
+:root define uma variável padrão para facilitar a utilização.
+Obs: precisa iniciar com -- seguido de um nome de sua preferência.
+*/
+
+:root {
+    --cor0: #c5ebd6;
+    --cor01: #83e1ad;
+    --cor02: #3ddc84;
+    --cor03: #2fa866;
+    --cor04: #1a5c37;
+    --cor05: #063d1e;
+
+    --fonte-padrao: Arial, Verdana, Helvetica, sans-serif;
+    --fonte-destaque: 'Bebas Neue', cursive;
+}
+
+/*
+O * significa seleção global, para todos os elementos.
+*/
+
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    background-color: var(--cor0);
+    font-family: var(--fonte-padrao);
+}
+
+/*
+No HTML colocamos a classe=externo em todos os links, e referenciamos os mesmos conforme abaixo. Adicionamos o content, para inserir o emoji desejado.
+*/
+
+a.externo::after {
+    content: '\00A0\1F517';
+}
+
+header {
+    background-image: linear-gradient(to bottom, var(--cor02), var(--cor05));
+    text-align: center;
+    min-height: 150px;
+    padding-top: 40px;
+}
+
+header > h1 {
+    color: white;
+    font-family: var(--fonte-destaque);
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.518);
+    font-weight: normal;
+}
+
+header > p {
+    color: white;
+    font-size: 1.0em;
+    font-family: var(--fonte-padrao);
+    max-width: 600px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin: auto;
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.186);
+}
+
+nav {
+    background-color: var(--cor05);
+    padding: 10px;
+    box-shadow: 0px 7px 9px rgba(0, 0, 0, 0.37);
+}
+
+/*
+transition-duration: tempo para o efeito aparecer através do cursor
+text-decoration: none > sem o sublinhado.
+*/
+
+nav > a {
+    color: white;
+    padding: 10px;
+    text-decoration: none;
+    font-weight: bold;
+    transition-duration: 0.3s;
+}
+
+/*
+a:hover é a configuração que faz o efeito desejado aparecer ao colocar o cursor em cima.
+*/
+
+nav > a:hover {
+    background-color: var(--cor04);
+    color: var(--cor0);
+}
+
+/*
+Com min e max, definimos a largura total da sessão main.
+E com margin: auto, definimos que o main será sempre centralizado nas telas, independente do tamanho.
+*/
+
+main {
+    background-color: white;
+    min-width: 300px;
+    max-width: 1000px;
+    margin: auto;
+    margin-bottom: 30px;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.784);
+    border-radius: 0px 0px 10px 10px;
+}
+
+main > article > h2 {
+    color: var(--cor04);
+    font-family: 'idroid', 'Times New Roman', Times, serif;
+    background-image: linear-gradient(to right, var(--cor01), transparent);
+}
+
+/*
+text-indent: espaço antes da frase em um parágrafo.
+*/
+
+main p {
+    margin: 15px 0px;
+    text-align: justify;
+    text-indent: 30px;
+    line-height: 1.5em;
+}
+
+main strong {
+    color: var(--cor04);
+    font-weight: bold;
+}
+
+/*
+Em main img (referente as imagens contidas no conteúdo principal do seu site) definindo a largura de 100%, a imagem se adapta junto as demais informações da tela.
+*/
+
+main img {
+    width: 100%;
+}
+
+/*
+Para centralizar imagens fora de boxes é necessário não só utilizar o margin: auto, como também o display: block.
+*/
+
+main img.pequena {
+    max-width: 150px;
+    display: block;
+    margin: auto;
+}
+
+div.video {
+    background-color: #063d1e;
+    margin: 0px -20px 30px -20px;
+    padding: 20px;
+    padding-bottom: 58%;
+    position: relative;
+}
+
+div.video > iframe {
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    width: 90%;
+    height: 90%;
+}
+
+aside {
+    background-color: var(--cor0);
+    padding: 10px;
+    border-radius: 10px;
+}
+
+/*
+Posiciona toda a lista dentro da sessão delimitada e divide a lista em duas colunas.
+E em list-style-type, selecionamos no emojipedia o símbolo "check" que tem o código correspondente a U+2714, e o espaço de código U+00A0. Copie apenas os números e cole com uma barra invertida (\) antes.
+*/
+
+aside > ul {
+    list-style-type: '\2714\00A0\00A0';
+    list-style-position: inside;
+    columns: 2;
+}
+
+aside > h3 {
+    background-color: #063d1e;
+    padding: 10px;
+    color: white;
+    margin: -10px -10px 0px -10px;
+    border-radius: 10px 10px 0px 0px;
+}
+
+footer {
+    background-color: var(--cor05);
+    color: white;
+    text-align: center;
+    font-size: 0.8em;
+    padding: 5px;
+}
+
+footer > p > a {
+    color: white;
+    font-weight: bolder;
+    text-decoration:  none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+    color: var(--cor01);
+}
